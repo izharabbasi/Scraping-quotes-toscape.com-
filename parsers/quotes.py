@@ -5,6 +5,9 @@ class QuotesParser:
     def __init__(self, parent):
         self.parent = parent
 
+    def __repr__(self):
+        return f"This article {self.Content} by {self.Author}"
+
     def Content(self):
         locator = Quotes.CONTENT
         return self.parent.select_one(locator).string
@@ -16,4 +19,3 @@ class QuotesParser:
     def tags(self):
         locator = Quotes.TAGS
         return [e.string for e in self.parent.select_one(locator)]
-
