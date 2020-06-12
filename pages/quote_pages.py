@@ -6,8 +6,9 @@ from parsers.quotes import QuotesParser
 
 class Quote:
     def __init__(self, page):
-        self.soup = BeautifulSoup(page, "html.parser").content
-
+        self.soup = BeautifulSoup(page, "html.parser")
+        
+    @property
     def Data(self):
         locators = PageQuotes.QUOTE
         quotes_tags = self.soup.select(locators)
